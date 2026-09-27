@@ -73,7 +73,7 @@ omit = [
   "src/numpy_ollama_toolkit_tayra/__about__.py",
 ]
 
-[tool.hatch.envs.hatch-test.matrix]
+[[tool.hatch.envs.hatch-test.matrix]]
 python = [
   "3.12",
   "3.13",
