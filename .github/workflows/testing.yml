@@ -9,6 +9,16 @@ on:
       - pyproject.toml
       - .github/workflows/testing.yml
 
+  check_run:
+    types: [created, rerequested]
+
+  pull_request:
+    types:
+      - opened
+      - closed
+    branches:
+      - main
+
 permissions:
   contents: read
 
