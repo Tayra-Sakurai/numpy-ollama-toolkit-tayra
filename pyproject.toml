@@ -1,0 +1,116 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "numpy-ollama-toolkit-tayra"
+dynamic = ["version"]
+description = 'NumPy support as Ollama Tools.'
+readme = "README.md"
+requires-python = ">=3.12"
+license = "AGPL-3.0-or-later"
+keywords = [
+  "numpy",
+  "llm",
+  "ollama",
+  "ai",
+]
+authors = [
+  { name = "Tayra Sakurai", email = "b4151069@edu.kit.ac.jp" },
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Framework :: Hatch",
+  "Intended Audience :: Education",
+  "Intended Audience :: Science/Research",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Education :: Computer Aided Instruction (CAI)",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = [
+  "numpy>=2.5",
+  "ollama>=0.6.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "hatch>=1.18",
+  "Sphinx>=9.1",
+  "pytest>=9.1",
+  "numpydoc>=1.11",
+  "pydata-sphinx-theme>=0.22",
+  "uv>=0.12.19",
+]
+
+[project.urls]
+Documentation = "https://tayra-sakurai.github.io/numpy-ollama-toolkit-tayra"
+Issues = "https://github.com/Tayra-Sakurai/numpy-ollama-toolkit-tayra/issues"
+Source = "https://github.com/Tayra-Sakurai/numpy-ollama-toolkit-tayra"
+
+[tool.hatch.version]
+path = "src/numpy_ollama_toolkit_tayra/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/numpy_ollama_toolkit_tayra tests}"
+
+[tool.coverage.run]
+source_pkgs = ["numpy_ollama_toolkit_tayra", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/numpy_ollama_toolkit_tayra/__about__.py",
+]
+
+[tool.hatch.envs.hatch-test]
+python = [
+  "3.12",
+  "3.13",
+  "3.14",
+]
+extra-dependencies = [
+  "pytest>=9.1",
+]
+
+[tool.coverage.paths]
+numpy_ollama_toolkit_tayra = ["src/numpy_ollama_toolkit_tayra", "*/numpy-ollama-toolkit-tayra/src/numpy_ollama_toolkit_tayra"]
+tests = ["tests", "*/numpy-ollama-toolkit-tayra/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.uv.workspace]
+members = [
+  ".",
+  ".",
+  ".",
+]
+
+[tool.uv.sources]
+numpy-ollama-toolkit-tayra = { workspace = true, editable = true }
+
+[dependency-groups]
+dev = [
+  "numpy-ollama-toolkit-tayra",
+  "hatch>=1.18",
+  "Sphinx>=9.1",
+  "pytest>=9.1",
+  "numpydoc>=1.11",
+  "pydata-sphinx-theme>=0.22",
+  "uv>=0.12",
+]
