@@ -73,12 +73,15 @@ omit = [
   "src/numpy_ollama_toolkit_tayra/__about__.py",
 ]
 
-[tool.hatch.envs.hatch-test]
+[tool.hatch.envs.hatch-test.matrix]
 python = [
   "3.12",
   "3.13",
   "3.14",
 ]
+
+[tool.hatch.envs.hatch-test]
+platforms = ["linux", "windows", "macos"]
 extra-dependencies = [
   "pytest>=9.1",
 ]
