@@ -7,5 +7,8 @@
    :toctree: generated/
 
    add
+   add_matrix
+   ShapeMismatchError
 """
 from ._array import *
+from ._exceptions import *
