@@ -6,7 +6,8 @@ from src.numpy_ollama_toolkit_tayra.tools import add
 
 
 def test_add_lists():
-    assert add(
+    result = add(
         [1., 2.],
-        [1., 3.]
-    ) == [2., 5.]
+        [3., 6.]
+    )
+    assert result == [4., 8.]
